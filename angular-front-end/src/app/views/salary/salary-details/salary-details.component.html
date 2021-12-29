@@ -1,0 +1,40 @@
+<h2>Salary Details</h2>
+
+<hr/>
+<div *ngIf="salary">
+  <div>
+    <label><b>Salary id: </b></label>&nbsp;&nbsp;&nbsp;{{salary.id}}
+  </div>
+
+  <div>
+    <label><b>Basic: </b></label>&nbsp;&nbsp;&nbsp; {{salary.basic | currency: "LKR "}}
+  </div>
+
+  <div>
+    <label><b>HRA (10% of basic): </b></label>&nbsp;&nbsp;&nbsp; {{salary.hra | currency: "LKR "}}
+  </div>
+
+  <div>
+    <label><b>Food Allowance (18% of basic): </b></label>&nbsp;&nbsp;&nbsp; {{salary.foodAllowance | currency: "LKR "}}
+  </div>
+
+  <div>
+    <label><b>Special Allowances (5% of basic): </b></label>&nbsp;&nbsp;&nbsp; {{salary.specialAllowances | currency: "LKR "}}
+  </div>
+
+  <div>
+    <label><b>Net Salary: </b></label>&nbsp;&nbsp;&nbsp; {{salary.netSalary | currency: "LKR "}}
+  </div>
+
+  <div>
+    <label><b>Category: </b></label>&nbsp;&nbsp;&nbsp; {{salary.category}}
+  </div>
+
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Salary List</button>
+<br><br>
+
+

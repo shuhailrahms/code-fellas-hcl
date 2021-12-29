@@ -1,0 +1,123 @@
+<h2>Employee Details</h2>
+
+<hr/>
+<div *ngIf="employee">
+  <div>
+    <label><b>Calling Name: </b></label>
+    <span *ngIf="employee.nametitle">&nbsp;&nbsp;&nbsp;{{employee.nametitle}}</span> {{employee.callingname}}
+  </div>
+  <div>
+    <label><b>Full Name: </b></label>&nbsp;&nbsp;&nbsp;<span *ngIf="employee.nametitle">{{employee.nametitle}}</span> {{employee.fullname}}
+  </div>
+
+  <div>
+    <label><b>Date of Birth: </b></label>&nbsp;&nbsp;&nbsp; {{employee.dobirth}}
+  </div>
+
+  <div>
+    <label><b>Gender: </b></label>&nbsp;&nbsp;&nbsp; {{employee.gender}}
+  </div>
+
+  <div>
+    <label><b>NIC: </b></label>&nbsp;&nbsp;&nbsp; {{employee.nic}}
+  </div>
+
+  <div>
+    <label><b>Marital Status: </b></label>&nbsp;&nbsp;&nbsp; {{employee.civilstatus}}
+  </div>
+
+  <div>
+    <label><b>Address: </b></label>&nbsp;&nbsp;&nbsp; {{employee.address}}
+  </div>
+
+  <div>
+    <label><b>Mobile: </b></label>&nbsp;&nbsp;&nbsp; {{employee.mobile}}
+  </div>
+
+  <div>
+    <label><b>Land: </b></label>&nbsp;&nbsp;&nbsp; {{employee.land}}
+  </div>
+
+  <div>
+    <label><b>Joined Date: </b></label>&nbsp;&nbsp;&nbsp; {{employee.dorecruit}}
+  </div>
+
+  <div *ngIf="employeeSalDetails">
+    <label><b>Designation: </b></label>&nbsp;&nbsp;&nbsp; {{employeeSalDetails.category}}
+  </div>
+
+  <div>
+    <label><b>Email Id: </b></label>&nbsp;&nbsp;&nbsp; {{employee.email}}
+  </div>
+
+  <div *ngIf="employeeSalDetails">
+    <hr/>
+    <h3>Salary Details</h3>
+    <hr/>
+    <div>
+      <label><b>Basic: </b></label>&nbsp;&nbsp;&nbsp; {{employeeSalDetails.basic | currency: "LKR "}}
+    </div>
+
+    <div>
+      <label><b>HRA: </b></label>&nbsp;&nbsp;&nbsp; {{employeeSalDetails.hra | currency: "LKR "}}
+    </div>
+
+    <div>
+      <label><b>Food Allowance: </b></label>&nbsp;&nbsp;&nbsp; {{employeeSalDetails.foodAllowance | currency: "LKR "}}
+    </div>
+
+    <div>
+      <label><b>Special Allowances: </b></label>&nbsp;&nbsp;&nbsp; {{employeeSalDetails.specialAllowances | currency: "LKR "}}
+    </div>
+
+    <div>
+      <label><b>Net Salary: </b></label>&nbsp;&nbsp;&nbsp; {{employeeSalDetails.netSalary | currency: "LKR "}}
+    </div>
+
+  </div>
+
+  <div *ngIf="employeeSalDetails">
+    <hr/>
+    <h3>Monthly Salary Calculation</h3>
+    <hr/>
+
+    <div class="row">
+      <div class="form-group col-md-4">
+        <label for="noPayLeaves">Enter no pay leaves taken</label>
+        <input type="text" class="form-control" id="noPayLeaves" #noPayLeaves required placeholder="Enter a number below 22 working days" name="noPayLeaves">
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" (click)="leaveCalculate(employeeSalDetails.basic, noPayLeaves.value)">
+      Submit</button><br>
+
+    <div *ngIf="monthlyBasic">
+      <label><b>Basic: </b></label>&nbsp;&nbsp;&nbsp; {{monthlyBasic | currency: "LKR "}}
+    </div>
+
+    <div *ngIf="monthlyHra">
+      <label><b>HRA: </b></label>&nbsp;&nbsp;&nbsp; {{monthlyHra | currency: "LKR "}}
+    </div>
+
+    <div *ngIf="monthlyFoodAllowance">
+      <label><b>Food Allowance: </b></label>&nbsp;&nbsp;&nbsp; {{monthlyFoodAllowance | currency: "LKR "}}
+    </div>
+
+    <div *ngIf="monthlySpecialAllowances">
+      <label><b>Special Allowances: </b></label>&nbsp;&nbsp;&nbsp; {{monthlySpecialAllowances | currency: "LKR "}}
+    </div>
+
+    <div *ngIf="monthlyNetSalary">
+      <label><b>Net Salary: </b></label>&nbsp;&nbsp;&nbsp; {{monthlyNetSalary | currency: "LKR "}}
+    </div>
+
+  </div>
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Employee List</button>&nbsp; &nbsp;
+<button (click)="viewSalaryDetails(employee.designationId)" [disabled]="employeeSalDetails" class="btn btn-dark">Show Salary Details</button><br>
+<br>
+
+

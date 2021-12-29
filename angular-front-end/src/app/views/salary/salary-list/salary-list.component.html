@@ -1,0 +1,28 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Salary List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th style="text-align: center">Salary ID</th>
+        <th style="text-align: center">Basic</th>
+        <th style="text-align: center">Category</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let salary of salaries | async">
+        <td style="text-align: center">{{salary.id}}</td>
+        <td style="text-align: center">{{salary.basic | currency: "LKR "}}</td>
+        <td style="text-align: center">{{salary.category}}</td>
+        <td><button (click)="deleteSalary(salary.id)" class="btn btn-danger">Delete</button>
+          <button (click)="updateSalary(salary.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+          <button (click)="salaryDetails(salary.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

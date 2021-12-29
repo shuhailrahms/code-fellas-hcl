@@ -1,0 +1,19 @@
+<h3>Update Salary</h3>
+<div style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="basic">Basic</label>
+      <input type="text" class="form-control" id="basic" required #basic="ngModel" [(ngModel)]="salary.basic" placeholder="Enter salary basic" name="basic">
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      <input type="text" class="form-control" id="category" required #category="ngModel" [(ngModel)]="salary.category" placeholder="Enter salary category" name="category">
+    </div>
+
+    <button type="submit" class="btn btn-success">
+      Submit</button>
+  </form>
+</div>
+<br>
